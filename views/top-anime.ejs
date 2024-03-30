@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Anime</title>
+</head>
+<body>
+    <h1>Top Anime</h1>
+    <ul>
+        <% topAnime.forEach(anime => { %>
+            <li>
+                <img src="<%= anime.images.jpg.image_url %>" alt="<%= anime.title %>" style="max-width: 200px;">
+                <h2><a href="<%= anime.url %>" target="_blank"><%= anime.title %></a></h2>
+                <p>Rating: <%= anime.score %>/10</p>
+            </li>
+        <% }) %>
+    </ul>
+
+    <a href="/">Back to Home</a>
+</body>
+</html>

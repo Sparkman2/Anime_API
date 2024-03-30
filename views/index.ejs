@@ -7,6 +7,25 @@
 <body>
     <h1><%= title %></h1>
     <p>Lets explore some anime!</p>
+    <a href="/random-anime">Find a random anime!</a>
+    <a href="/top-anime">Top animes</a>
+    <form action="/search-anime" method="get">
+        <input type="text" name="q" placeholder="search for an anime, e.g Naruto">
+        <button type="submit">Search</button>
+    </form>
 
+    <% if (results && results.length > 0) { %>
+        <h2>Search Results for '<%= query %>'</h2>
+        <ul>
+            <% results.forEach(anime => { %>
+                <li>
+                    <img src="<%= anime.images.jpg.image_url %>" alt="<%= anime.title %>" style="max-width: 200px;">
+                    <h2><a href="<%= anime.url %>" target="_blank"><%= anime.title %></a></h2>
+                </li>
+            <% }) %>
+        </ul>
+    <% } else if (query) { %>
+        <p>No animes found for '<%= query %>'.</p>
+    <% } %>
 </body>
 </html>
