@@ -32,3 +32,9 @@ The CSS styles sheet was not working with my EJS template, so I had to transitio
 
 https://github.com/Sparkman2/Anime_API/assets/96559493/a9cdef8a-7b8c-455c-8904-d9d326163d00
 
+
+https://github.com/Sparkman2/Anime_API/assets/96559493/366d7dfc-61ef-4b6c-9dda-75ea69036bd8
+
+
+https://github.com/Sparkman2/Anime_API/assets/96559493/01e0916b-8fa1-469d-b200-c8655a35fe19
+
