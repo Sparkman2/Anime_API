@@ -6,9 +6,9 @@ Using Jikan API, https://jikan.moe, this application helps you find the anime th
 
 Firstly make sure you have node.js installed on your computer
 
-1. Download the zip file in GitHub and extract and set the folder in your desktop, it should be called Anime_API-main. You can rename this to anything you like
+1. Download the zip file in GitHub and extract and set the folder on your desktop, it should be called Anime_API-main. You can rename this to anything you like
 
-2. Open up your terminal and get into the folder Anime_API-main using the cd commands. 
+2. Open up your terminal and get into the folder Anime_API-main using the cd commands. For example, if it is your desktop do cd Desktop/Anime_API-main
 
 3. Write this line in the command line "node server.js". You should see a message that says "Server on 3000"
 
@@ -16,7 +16,7 @@ Firstly make sure you have node.js installed on your computer
 
 # Testing the Jest Test
 
-1. Download the zip file in GitHub and extract and set the folder in your desktop, it should be called Anime_API-main. You can rename this to anything you like
+1. Download the zip file in GitHub and extract and set the folder on your desktop, it should be called Anime_API-main. You can rename this to anything you like
 
 2. Open up your terminal and get into the folder Anime_API-main using the cd commands. 
 
@@ -24,9 +24,9 @@ Firstly make sure you have node.js installed on your computer
 
 # Things I learned and struggled with
 
-I learned EJS framework as well as Jest testing. They were both pretty simple to get the hang of and it was easy to work with.
+I learned the EJS framework as well as Jest testing. They were both pretty simple to get the hang of and easy to work with.
 
-The CSS styles sheet was not working with my EJS template, so I had to transition and just add style to each EJS template individually. However, I would've wanted to make a singular style sheet.
+The CSS styles sheet was not working with my EJS template, so I had to transition and add style to each EJS template individually. However, I would've wanted to make a singular style sheet.
 
 # Videos of the application
 
