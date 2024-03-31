@@ -3,27 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            background-color: #007bff;
+            color: white;
+        }
+        .top-container{
+            text-align: right;
+            margin-bottom: 10px;
+        }
+
+        .top-container a{
+            font-size: 20px;
+            color: white;
+            margin: 0 10px;
+        }
+
+        p {
+            text-align: center;
+            font-size: 20px;
+        }
+
+        h1 {
+            margin-top: 15%;
+            text-align: center;
+            font-size: 60px;
+        }
+        form {
+            text-align: center; 
+            margin-bottom: 20px; 
+        }
+
+        input[type="text"] {
+            padding: 12px;
+            font-size: 16px;
+            border: none; 
+            border-radius: 10px;
+            width: 20%; 
+        }
+
+        .results-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .anime-item {
+            position: relative;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 10px;
+            
+        }
+        .anime-item img {
+            max-width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+
+        .anime-item a {
+            position: absolute;
+            width: 96%;
+            height: 10%;
+            top: 88%; 
+            left: -4%;
+            background: rgb(252, 252, 252);
+            color: black;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            padding: 5px;
+            font-size: 12px;
+        }
+        
+    </style>
 </head>
 <body>
+    <div class="top-container">
+        <a href="/random-anime">Find a random anime!</a>
+        <a href="/top-anime">Top animes</a>
+    </div>
+
+    <div class="top-container">
+
     <h1><%= title %></h1>
-    <p>Lets explore some anime!</p>
-    <a href="/random-anime">Find a random anime!</a>
-    <a href="/top-anime">Top animes</a>
+    <p>Can't think of a new anime to watch? Go checkout the random anime link in the top to explore some new animes!</p>
+    <p>Search up your favorite animes by simply typing the title and hitting your enter button!</p>
+
     <form action="/search-anime" method="get">
         <input type="text" name="q" placeholder="search for an anime, e.g Naruto">
-        <button type="submit">Search</button>
     </form>
 
     <% if (results && results.length > 0) { %>
-        <h2>Search Results for '<%= query %>'</h2>
-        <ul>
+        <div class="results-container">
             <% results.forEach(anime => { %>
-                <li>
-                    <img src="<%= anime.images.jpg.image_url %>" alt="<%= anime.title %>" style="max-width: 200px;">
-                    <h2><a href="<%= anime.url %>" target="_blank"><%= anime.title %></a></h2>
-                </li>
+                <div class="anime-item">
+                    <img src="<%= anime.images.jpg.image_url %>">
+                    <h2>
+                        <a href="<%= anime.url %>"><%= anime.title %></a>
+                    </h2>
+                </div>
             <% }) %>
-        </ul>
+        </div>
     <% } else if (query) { %>
         <p>No animes found for '<%= query %>'.</p>
     <% } %>

@@ -4,19 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Top Anime</title>
+    <style>
+        body {
+            background-color: #007bff;
+            color: white;
+        }
+
+        h1{
+            text-align: center;
+        }
+
+        .top-container{
+            text-align: right;
+            margin-bottom: 10px;
+        }
+
+        .top-container a{
+            font-size: 20px;
+            color: white;
+            margin: 0 10px;
+        }
+        
+        .results-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .anime-item {
+            position: relative;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 10px;
+            
+        }
+        .anime-item img {
+            max-width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+
+        .anime-item a {
+            position: absolute;
+            width: 96%;
+            height: 10%;
+            top: 88%; 
+            left: 0;
+            background: rgb(252, 252, 252);
+            color: black;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            padding: 5px;
+            font-size: 12px;
+        }
+    </style>
 </head>
 <body>
+    <div class="top-container">
+        <a href="/">Home</a>
+        <a href="/random-anime">Find a random anime!</a>
+    </div>
+    
     <h1>Top Anime</h1>
-    <ul>
+    <div class="results-container">
         <% topAnime.forEach(anime => { %>
-            <li>
-                <img src="<%= anime.images.jpg.image_url %>" alt="<%= anime.title %>" style="max-width: 200px;">
-                <h2><a href="<%= anime.url %>" target="_blank"><%= anime.title %></a></h2>
-                <p>Rating: <%= anime.score %>/10</p>
-            </li>
+            <div class="anime-item">
+                <img src="<%= anime.images.jpg.image_url %>">
+                <h2>
+                    <a href="<%= anime.url %>"><%= anime.title %></a>
+                </h2>
+            </div>
         <% }) %>
-    </ul>
-
-    <a href="/">Back to Home</a>
+    </div>
 </body>
 </html>

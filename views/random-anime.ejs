@@ -4,13 +4,134 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= anime.title %></title>
+    <style>
+
+        body{
+            background-color:#007bff;
+            color: white;
+        }
+
+        .top-container{
+            text-align: right;
+            margin-bottom: 10px;
+        }
+
+        .top-container a{
+            font-size: 20px;
+            color: white;
+            margin: 0 10px;
+        }
+
+        .anime-content a {
+            font-size: 30px;
+            color: white; 
+        }
+        
+        form {
+            text-align: center;
+        }
+
+        form button {
+        text-align: center;
+        padding: 10px 20px; 
+        font-size: 18px; 
+        background-color: white;
+        color: #007bff;
+        border: none; 
+        border-radius: 5px; 
+        cursor: pointer;
+        }
+
+        .anime-container {
+            display: flex;
+            align-items: stretch;
+            margin-top: 20px;
+            height: 80vh;
+        }
+
+        .anime-image {
+            justify-content: center; 
+            align-items: center; 
+            min-width: 400px;
+        }
+        
+        .anime-image img {
+            width: 100%;
+            height: 100%; 
+        }
+
+        .anime-content {
+            margin-left: 10px;
+            flex: 1;
+            display: flex;
+            flex-direction: column; 
+            justify-content: space-between; 
+            text-align: center;
+            font-size: 15px;
+            border: 2px solid white;
+
+        }
+
+        .anime-stats {
+            display: flex;
+            justify-content: center; 
+            font-size: 15px;
+            margin-top: 10px; 
+        }
+
+        .stat-item {
+            margin: 0 10px;
+        }
+        .synopsis{
+            padding-top: 9%;
+            font-size: 15px;
+            
+        }
+        .date{
+            margin-top: auto;
+            padding-top: 5%;
+        }
+
+    </style>
 </head>
 <body>
-    <img src="<%= anime.images.jpg.image_url %>" alt="<%= anime.title %>" style="max-width: 200px;">
-    <h2><a href="<%= anime.url %>" target="_blank"><%= anime.title %></a></h2>
-    <h2>Rank: <%= anime.rank %></h2>
-    <p><%= anime.synopsis %></p>
+    <div class="top-container">
+        <a href="/">Home</a>
+        <a href="/top-anime">Top animes</a>
+    </div>
 
-    <a href="/">Back to Home</a>
+    <form action="/random-anime" method="get">
+        <button type="submit">Click me for new anime!</button>
+    </form>
+    
+    <div class="anime-container">
+        <div class="anime-image">
+            <img src="<%= anime.images.jpg.image_url %>" style="max-height: 100%;">
+        </div>
+        
+        <div class="anime-content">
+            <h2>
+                <a href="<%= anime.url %>"><%= anime.title %></a>
+            </h2>
+            
+            <div class="anime-stats">
+                <span class="stat-item">Rank: <%= anime.rank ? anime.rank : 'N/A' %></span>
+                <span class="stat-item">Rating: <%= anime.rating ? anime.rating : 'N/A' %></span>
+                <span class="stat-item">Score: <%= anime.score ? anime.score.toFixed(1) + '/10' : 'N/A' %></span>
+            </div>
+
+            <div class="synopsis">
+                <p><%= anime.synopsis ? anime.synopsis : 'No synopsis available.' %></p>
+            </div>
+
+            <div class="date">
+                <p>Aired: 
+                    <%= anime.aired.from ? new Date(anime.aired.from).toLocaleDateString() : 'N/A' %> 
+                    to 
+                    <%= anime.aired.to ? new Date(anime.aired.to).toLocaleDateString() : 'N/A' %>
+                </p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

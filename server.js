@@ -5,10 +5,9 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
-
 app.get('/', (req, res) => {
     res.render('index', {
-        title: 'Hi! This is my Anime API Viewer!',
+        title: 'Hi! Come check out some anime!',
         results: [], 
         query: ''
     });
@@ -16,9 +15,16 @@ app.get('/', (req, res) => {
 
 //Generate random anime route
 app.get('/random-anime', async (req, res) => {
-    const response = await axios.get('https://api.jikan.moe/v4/random/anime');
-    res.render('random-anime', { anime: response.data.data });
-    console.log(response.data);
+    let anime = null;
+    do {
+        const response = await axios.get('https://api.jikan.moe/v4/random/anime');
+        if (response.data.data.rating !== 'Rx - Hentai') {
+            anime = response.data.data;
+        }
+    } while (anime === null); 
+
+    res.render('random-anime', { anime: anime});
+    console.log(anime);
 });
 
 //Search for an anime route
@@ -28,7 +34,7 @@ app.get('/search-anime', async (req, res) => {
     const response = await axios.get(url);
     const searchResults = response.data.data.slice(0, 15);
     res.render('index', { 
-        title: 'Hi! This is my Anime API Viewer!', 
+        title: 'Hi! Come check out some anime!', 
         results: searchResults, 
         query: query 
     });
