@@ -32,6 +32,8 @@ app.get('/search-anime', async (req, res) => {
     const query = req.query.q; 
     const url = `https://api.jikan.moe/v4/anime?q=${encodeURIComponent(query)}`;
     const response = await axios.get(url);
+    
+    //Only getting the top 15 results
     const searchResults = response.data.data.slice(0, 15);
     res.render('index', { 
         title: 'Hi! Come check out some anime!', 
@@ -50,5 +52,7 @@ app.get('/top-anime', async (req, res) => {
 
 const PORT = 3000;
 app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+    console.log(`Server on ${PORT}`);
 });
+
+module.exports = app;
