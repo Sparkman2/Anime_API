@@ -24,7 +24,6 @@ app.get('/random-anime', async (req, res) => {
     } while (anime === null); 
 
     res.render('random-anime', { anime: anime});
-    console.log(anime);
 });
 
 //Search for an anime route
