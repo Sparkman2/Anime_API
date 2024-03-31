@@ -29,4 +29,6 @@ I learned EJS framework as well as Jest testing. They were both pretty simple to
 The CSS styles sheet was not working with my EJS template, so I had to transition and just add style to each EJS template individually. However, I would've wanted to make a singular style sheet.
 
 # Videos of the application
-[Home Page](vscode-local:/Users/chirath/Desktop/Screen%2520Recording%25202024-03-31%2520at%25204.39.56%25E2%2580%25AFPM.mov)
+
+https://github.com/Sparkman2/Anime_API/assets/96559493/a9cdef8a-7b8c-455c-8904-d9d326163d00
+
